@@ -14,9 +14,10 @@ public class LottoStore {
     }
 
     private Customer purchaseLotto() {
-        int lottoAmount = clerk.inputLottoPurchaseAmount();
+        int price = clerk.inputLottoPurchaseAmount();
+        int lottoAmount = lottoMachine.getLottoAmount(price);
         List<Lotto> customerLottos = lottoMachine.getLottos(lottoAmount);
-        clerk.printChange(lottoAmount);
+        clerk.printChange(price);
 
         Customer customer = new Customer(customerLottos);
         clerk.printLottos(customerLottos);

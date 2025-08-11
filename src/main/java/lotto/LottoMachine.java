@@ -9,6 +9,7 @@ public class LottoMachine {
 
     private final Random random = new Random();
     private final Validator validator = new Validator();
+    private final Clerk clerk = new Clerk();
 
     private int bonusNumber;
     private Lotto winningLotto;
@@ -26,7 +27,11 @@ public class LottoMachine {
         }
 
         Collections.sort(winningNumbers);
-        return this.winningLotto = new Lotto(winningNumbers);
+        try {
+            return this.winningLotto = new Lotto(winningNumbers);
+        } catch (IllegalArgumentException e) {
+            return setWinningNumbers(clerk.inputWinningNumbers());
+        }
     }
 
     public void setBonusNumber(int bonusNumber) {

@@ -11,6 +11,7 @@ public class Customer {
 
     public Customer(List<Lotto> lottos) {
         this.lottos = lottos;
+        initWinnings();
     }
 
     public List<Lotto> getLottos() {
@@ -27,7 +28,7 @@ public class Customer {
 
     public void updateWinnings(int matchCount, boolean isBonus) {
         Rank rank = Rank.getRank(matchCount, isBonus);
-        winnings.put(rank, winnings.getOrDefault(rank, 0) + 1);
+        winnings.put(rank, winnings.get(rank) + 1);
     }
 
     public void setEarningRate() {
@@ -42,5 +43,14 @@ public class Customer {
             totalEarnings += rank.getPrize() * winnings.get(rank);
         }
         return totalEarnings;
+    }
+
+    private void initWinnings() {
+        winnings.put(Rank.FIRST, 0);
+        winnings.put(Rank.SECOND, 0);
+        winnings.put(Rank.THIRD, 0);
+        winnings.put(Rank.FOURTH, 0);
+        winnings.put(Rank.FIFTH, 0);
+        winnings.put(Rank.NONE, 0);
     }
 }
