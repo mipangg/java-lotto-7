@@ -37,4 +37,15 @@ public class Clerk {
         }
     }
 
+    public void printResult(Customer customer) {
+        System.out.println("당첨 통계");
+        System.out.println("---");
+        System.out.println("3개 일치 ( " + Prize.FIFTH.getPrize() + "원) - "+ 0 + "개");
+        System.out.println("4개 일치 ( " + Prize.FORTH.getPrize() + "원) - "+ 0 + "개");
+        System.out.println("5개 일치 ( " + Prize.THIRD.getPrize() + "원) - "+ 0 + "개");
+        System.out.println("5개 일치, 보너스 볼 일치 ( " + Prize.SECOND.getPrize() + "원) - "+ 0 + "개");
+        System.out.println("6개 일치 ( " + Prize.FIRST.getPrize() + "원) - "+ 0 + "개");
+        System.out.println("총 수익률은 " + 0 + "%입니다.");
+    }
+
 }
