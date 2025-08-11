@@ -1,5 +1,6 @@
 package lotto;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Clerk {
@@ -26,6 +27,13 @@ public class Clerk {
 
         if (change != 0) {
             System.out.println("거스름돈: " + price % 1000);
+        }
+    }
+
+    public void printLottos(List<Lotto> lottos) {
+        System.out.println(lottos.size() + "개를 구매했습니다.");
+        for (Lotto lotto : lottos) {
+            System.out.println(lotto);
         }
     }
 
