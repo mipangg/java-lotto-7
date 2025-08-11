@@ -47,6 +47,33 @@ public class LottoMachine {
         return lottos;
     }
 
+    public void checkLottoResult(Customer customer) {
+        List<Lotto> customerLottos = customer.getLottos();
+        for (Lotto lotto : customerLottos) {
+            int matchCount = getMatchCount(lotto);
+            boolean isBonus = getIsBonus(lotto, matchCount);
+
+            customer.updateWinnings(matchCount, isBonus);
+        }
+    }
+
+    private int getMatchCount(Lotto lotto) {
+        int matchCount = 0;
+        for (Integer number : lotto.getNumbers()) {
+            if (winningLotto.contains(number)) {
+                matchCount++;
+            }
+        }
+        return matchCount;
+    }
+
+    private boolean getIsBonus(Lotto lotto, int matchCount) {
+        if (matchCount == 5) {
+            return lotto.contains(bonusNumber);
+        }
+        return false;
+    }
+
     private Lotto generateLotto() {
         List<Integer> numbers = new ArrayList<>();
 

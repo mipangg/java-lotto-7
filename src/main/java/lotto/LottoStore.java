@@ -33,6 +33,6 @@ public class LottoStore {
     }
 
     private void checkLotto(Customer customer) {
-
+        lottoMachine.checkLottoResult(customer);
     }
 }
