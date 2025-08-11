@@ -31,10 +31,12 @@ public class Customer {
     }
 
     public void setEarningRate() {
-        this.earningRate = Math.round(((float) lottos.size() / getTotalEarnings()) * 100) / 100.0;
+        if (!lottos.isEmpty()) {
+            this.earningRate = Math.round((double) getTotalEarning() / lottos.size()) / 10.0;
+        }
     }
 
-    private long getTotalEarnings() {
+    private long getTotalEarning() {
         long totalEarnings = 0;
         for (Rank rank : winnings.keySet()) {
             totalEarnings += rank.getPrize() * winnings.get(rank);

@@ -47,7 +47,7 @@ public class LottoMachine {
         return lottos;
     }
 
-    public void checkLottoResult(Customer customer) {
+    public Customer checkLottoResult(Customer customer) {
         List<Lotto> customerLottos = customer.getLottos();
         for (Lotto lotto : customerLottos) {
             int matchCount = getMatchCount(lotto);
@@ -55,6 +55,8 @@ public class LottoMachine {
 
             customer.updateWinnings(matchCount, isBonus);
         }
+        customer.setEarningRate();
+        return customer;
     }
 
     private int getMatchCount(Lotto lotto) {

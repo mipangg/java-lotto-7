@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Clerk {
@@ -40,6 +41,11 @@ public class Clerk {
     public void printResult(Customer customer) {
         System.out.println("당첨 통계");
         System.out.println("---");
+        Map<Rank, Integer> winnings = customer.getWinnings();
+        for (Rank rank : winnings.keySet()) {
+            System.out.println(rank.toString(winnings.get(rank)));
+        }
+        System.out.println("총 수익률은 " + customer.getEarningRate() + "%입니다.");
     }
 
 }
