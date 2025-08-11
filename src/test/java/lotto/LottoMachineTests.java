@@ -1,6 +1,7 @@
 package lotto;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
@@ -26,7 +27,7 @@ class LottoMachineTests {
     @DisplayName("1~45 사이의 당첨 번호 6개를 입력 받아 로또를 반환할 수 있다.")
     void getWinningNumbersTest() {
 
-        String winningNumbersText = "1, 7, 13, 33, 41, 45";
+        String winningNumbersText = "1, 7, 7, 13, 33, 41, 45";
 
         Lotto expectedWinningLotto = new Lotto(List.of(1, 7, 13, 33, 41, 45));
 
@@ -41,4 +42,33 @@ class LottoMachineTests {
 
     }
 
+    @Test
+    @DisplayName("입력된 당첨 번호가 1~45가 아니면 예외가 발생한다.")
+    void getWinningNumbersOverRangeFailTest() {
+
+        String wrongWinningNumbersText = "1, 7, 13, 33, 41, 88";
+
+        assertThatThrownBy(
+                () -> {
+                    lottoMachine.getWinningNumbers(wrongWinningNumbersText);
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 로또 번호의 숫자 범위는 1~45여야 합니다.");
+
+    }
+
+    @Test
+    @DisplayName("입력된 당첨 번호가 6개가 아니면 예외가 발생한다.")
+    void getWinningNumbersWrongSizeFailTest() {
+
+        String wrongWinningNumbersText = "13, 33, 41, 45";
+
+        assertThatThrownBy(
+                () -> {
+                    lottoMachine.getWinningNumbers(wrongWinningNumbersText);
+                }
+        ).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 로또 번호는 6개여야 합니다.");
+
+    }
 }

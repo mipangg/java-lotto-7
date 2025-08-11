@@ -14,7 +14,9 @@ public class LottoMachine {
         for (String s : split) {
             int number = Integer.parseInt(s.trim());
             validator.validateLottoNumber(number);
-            winningNumbers.add(number);
+            if (!winningNumbers.contains(number)) {
+                winningNumbers.add(number);
+            }
         }
 
         return new Lotto(winningNumbers);
