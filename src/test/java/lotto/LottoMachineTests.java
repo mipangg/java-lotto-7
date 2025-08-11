@@ -31,7 +31,7 @@ class LottoMachineTests {
 
         Lotto expectedWinningLotto = new Lotto(List.of(1, 7, 13, 33, 41, 45));
 
-        Lotto actualWinningLotto = lottoMachine.getWinningNumbers(winningNumbersText);
+        Lotto actualWinningLotto = lottoMachine.setWinningNumbers(winningNumbersText);
 
         assertThat(actualWinningLotto.getNumbers().size())
                 .isEqualTo(expectedWinningLotto.getNumbers().size());
@@ -50,7 +50,7 @@ class LottoMachineTests {
 
         assertThatThrownBy(
                 () -> {
-                    lottoMachine.getWinningNumbers(wrongWinningNumbersText);
+                    lottoMachine.setWinningNumbers(wrongWinningNumbersText);
                 }
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호의 숫자 범위는 1~45여야 합니다.");
@@ -65,7 +65,7 @@ class LottoMachineTests {
 
         assertThatThrownBy(
                 () -> {
-                    lottoMachine.getWinningNumbers(wrongWinningNumbersText);
+                    lottoMachine.setWinningNumbers(wrongWinningNumbersText);
                 }
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호는 6개여야 합니다.");

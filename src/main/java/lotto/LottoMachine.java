@@ -13,7 +13,7 @@ public class LottoMachine {
     private int bonusNumber;
     private Lotto winningLotto;
 
-    public void setWinningNumbers(String winningNumbersText) {
+    public Lotto setWinningNumbers(String winningNumbersText) {
         List<Integer> winningNumbers = new ArrayList<>();
 
         String[] split = winningNumbersText.split(",");
@@ -26,7 +26,7 @@ public class LottoMachine {
         }
 
         Collections.sort(winningNumbers);
-        this.winningLotto = new Lotto(winningNumbers);
+        return this.winningLotto = new Lotto(winningNumbers);
     }
 
     public void setBonusNumber(int bonusNumber) {
