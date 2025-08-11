@@ -15,11 +15,11 @@ class LottoMachineTests {
     @DisplayName("로또 구입 금액을 입력하면 구입 가능한 로또 개수를 반환하고 잔돈을 출력한다.")
     void getLottoAmountTest() {
 
-        int amount = 8500;
+        int price = 8500;
 
-        int result = lottoMachine.getLottoAmount(amount);
+        int result = lottoMachine.getLottoAmount(price);
 
-        assertThat(result).isEqualTo(amount / 1000);
+        assertThat(result).isEqualTo(price / 1000);
 
     }
 
@@ -69,6 +69,21 @@ class LottoMachineTests {
                 }
         ).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("[ERROR] 로또 번호는 6개여야 합니다.");
+
+    }
+
+    @Test
+    @DisplayName("원하는 개수 만큼 중복되지 않는 6개의 랜덤 숫자로 이루어진 로또를 생성할 수 있다.")
+    void getLottosTest() {
+
+        int amount = 8;
+        int lottoSize = 6;
+        List<Lotto> lottos = lottoMachine.getLottos(amount);
+
+        assertThat(lottos.size()).isEqualTo(amount);
+        for (Lotto lotto : lottos) {
+            assertThat(lotto.getNumbers().size()).isEqualTo(lottoSize);
+        }
 
     }
 }
