@@ -1,6 +1,7 @@
 package lotto;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -9,7 +10,10 @@ public class LottoMachine {
     private final Random random = new Random();
     private final Validator validator = new Validator();
 
-    public Lotto getWinningNumbers(String winningNumbersText) {
+    private int bonusNumber;
+    private Lotto winningLotto;
+
+    public void setWinningNumbers(String winningNumbersText) {
         List<Integer> winningNumbers = new ArrayList<>();
 
         String[] split = winningNumbersText.split(",");
@@ -21,7 +25,12 @@ public class LottoMachine {
             }
         }
 
-        return new Lotto(winningNumbers);
+        Collections.sort(winningNumbers);
+        this.winningLotto = new Lotto(winningNumbers);
+    }
+
+    public void setBonusNumber(int bonusNumber) {
+        this.bonusNumber = bonusNumber;
     }
 
     public int getLottoAmount(int price) {
@@ -48,6 +57,7 @@ public class LottoMachine {
             }
         }
 
+        Collections.sort(numbers);
         return new Lotto(numbers);
     }
 
