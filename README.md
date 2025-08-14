@@ -14,7 +14,30 @@
 ---
 
 ## 패키지 구조
+```
+lotto
+ ├── app
+ │    ├── Application
+ │    └── LottoStore
+ │
+ ├── domain
+ │    ├── Customer
+ │    ├── Lotto
+ │    ├── Rank
+ │    └── WinningLotto
+ │
+ ├── exception
+ │    └── ErrorCode
+ │
+ ├── service
+ │    ├── Clerk
+ │    └── LottoMachine
+ │
+ └── util
+      ├── Formatter
+      └── Validator
 
+```
 
 ---
 
