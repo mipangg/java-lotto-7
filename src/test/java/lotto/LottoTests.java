@@ -43,7 +43,7 @@ class LottoTests {
                     Lotto lotto = new Lotto(numbers);
                 }
         ).isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorCode.DUPLICATED_NUMBER.getMessage());
+                .hasMessage(ErrorCode.DUPLICATE_NUMBER.getMessage());
 
     }
 

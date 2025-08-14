@@ -13,7 +13,7 @@ public class Validator {
     public void duplicateNumbers(List<Integer> numbers) {
         List<Integer> distinctNumbers = numbers.stream().distinct().toList();
         if (distinctNumbers.size() != numbers.size()) {
-            throw new IllegalArgumentException(ErrorCode.DUPLICATED_NUMBER.getMessage());
+            throw new IllegalArgumentException(ErrorCode.DUPLICATE_NUMBER.getMessage());
         }
     }
 
@@ -29,4 +29,9 @@ public class Validator {
         }
     }
 
+    public void duplicateBonusNumber(Lotto winningLotto, int bonusNumber) {
+        if (winningLotto.contains(bonusNumber)) {
+            throw new IllegalArgumentException(ErrorCode.DUPLICATE_NUMBER.getMessage());
+        }
+    }
 }
