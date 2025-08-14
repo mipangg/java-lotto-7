@@ -1,6 +1,8 @@
-package lotto;
+package lotto.util;
 
 import java.util.List;
+import lotto.domain.ErrorCode;
+import lotto.domain.Lotto;
 
 public class Validator {
 

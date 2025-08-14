@@ -1,6 +1,7 @@
-package lotto;
+package lotto.domain;
 
 import java.util.List;
+import lotto.util.Validator;
 
 public class Lotto {
     private final List<Integer> numbers;

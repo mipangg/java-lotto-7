@@ -1,4 +1,4 @@
-package lotto;
+package lotto.domain;
 
 public enum ErrorCode {
     OUT_OF_BOUNDS("[ERROR] 로또 번호는 1~45사이여야 합니다."),
