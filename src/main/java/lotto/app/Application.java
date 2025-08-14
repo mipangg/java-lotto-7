@@ -1,6 +1,5 @@
 package lotto.app;
 
-import lotto.domain.Lotto;
 
 public class Application {
 

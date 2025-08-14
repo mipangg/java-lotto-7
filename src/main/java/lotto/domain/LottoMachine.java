@@ -27,6 +27,13 @@ public class LottoMachine {
         return lottos;
     }
 
+    // 손님의 로또 결과 확인
+    public Customer getCustomerResult(WinningLotto winningLotto, Customer customer) {
+        customer.setResult(winningLotto);
+        customer.setEarningRate();
+        return customer;
+    }
+
     // 로또 생성
     private Lotto generateLotto() {
         Random random = new Random();

@@ -27,4 +27,21 @@ public class WinningLotto {
     public Integer getBonusNumber() {
         return bonusNumber;
     }
+
+    public int getMatchCount(Lotto customerLotto) {
+        int matchCount = 0;
+        List<Integer> winningNumbers = lotto.getNumbers();
+
+        for (Integer winningNumber : winningNumbers) {
+            if (customerLotto.contains(winningNumber)) {
+                matchCount++;
+            }
+        }
+
+        return matchCount;
+    }
+
+    public boolean matchBonus(Lotto lotto) {
+        return lotto.contains(bonusNumber);
+    }
 }
