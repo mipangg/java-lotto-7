@@ -1,4 +1,4 @@
-package lotto.domain;
+package lotto.service;
 
 import static lotto.domain.Rank.FIFTH;
 import static lotto.domain.Rank.FIRST;
@@ -12,7 +12,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 import java.util.Map;
-import lotto.service.LottoMachine;
+import lotto.domain.Customer;
+import lotto.domain.Lotto;
+import lotto.domain.Rank;
+import lotto.domain.WinningLotto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -67,7 +70,10 @@ class LottoMachineTests {
                         new Lotto(List.of(1, 3, 5, 14, 22, 45))
                 )
         );
-        WinningLotto winningLotto = new WinningLotto(List.of(1,2,3,4,5,6), 7);
+        WinningLotto winningLotto = new WinningLotto(
+                new Lotto(List.of(1,2,3,4,5,6)),
+                7
+        );
         double expectedEarningRate = BigDecimal.valueOf(5000)
                 .divide(BigDecimal.valueOf(8000), 2, RoundingMode.HALF_UP)
                 .multiply(BigDecimal.valueOf(100))

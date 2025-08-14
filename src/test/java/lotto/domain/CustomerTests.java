@@ -28,7 +28,10 @@ class CustomerTests {
     @DisplayName("당첨 번호와 손님의 로또를 비교하여 당첨 결과를 저장할 수 있다")
     void setResultTest() {
 
-        WinningLotto winningLotto = new WinningLotto(List.of(1,2,3,4,5,6), 7);
+        WinningLotto winningLotto = new WinningLotto(
+                new Lotto(List.of(1,2,3,4,5,6)),
+                7
+        );
         Map<Rank, Integer> expectedResult = Map.of(
                 Rank.FIRST, 1,
                 Rank.SECOND, 1,

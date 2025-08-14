@@ -16,6 +16,10 @@ public class Customer {
         initResult();
     }
 
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
+
     public Map<Rank, Integer> getResult() {
         return result;
     }
@@ -47,9 +51,13 @@ public class Customer {
 
     public String getTotalResult() {
         StringBuilder totalResult = new StringBuilder();
-        for (Map.Entry<Rank, Integer> entry : result.entrySet()) {
-            totalResult.append(entry.getKey().toString(entry.getValue()));
-        }
+
+        totalResult.append(Rank.FIFTH.toString(result.get(Rank.FIFTH))).append("\n");
+        totalResult.append(Rank.FOURTH.toString(result.get(Rank.FOURTH))).append("\n");
+        totalResult.append(Rank.THIRD.toString(result.get(Rank.THIRD))).append("\n");
+        totalResult.append(Rank.SECOND.toString(result.get(Rank.SECOND))).append("\n");
+        totalResult.append(Rank.FIRST.toString(result.get(Rank.FIRST)));
+
         return totalResult.toString();
     }
 

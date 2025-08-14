@@ -1,6 +1,7 @@
 package lotto.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import lotto.domain.Customer;
@@ -49,6 +50,7 @@ public class LottoMachine {
             }
         }
 
+        Collections.sort(numbers);
         return new Lotto(numbers);
     }
 
