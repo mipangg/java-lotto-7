@@ -45,6 +45,18 @@ public class Customer {
                 .doubleValue();
     }
 
+    public String getTotalResult() {
+        StringBuilder totalResult = new StringBuilder();
+        for (Map.Entry<Rank, Integer> entry : result.entrySet()) {
+            totalResult.append(entry.getKey().toString(entry.getValue()));
+        }
+        return totalResult.toString();
+    }
+
+    public String getTotalEarningRate() {
+        return "총 수익률은 " + earningRate + "%입니다.";
+    }
+
     private void initResult() {
         result = new HashMap<>();
         result.put(Rank.FIRST, 0);

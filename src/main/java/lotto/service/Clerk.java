@@ -1,6 +1,7 @@
-package lotto.domain;
+package lotto.service;
 
 import java.util.Scanner;
+import lotto.domain.Customer;
 
 public class Clerk {
     private Scanner sc = new Scanner(System.in);
@@ -27,6 +28,8 @@ public class Clerk {
     public void outputWinningResult(Customer customer) {
         System.out.println("당첨 통계");
         System.out.println("---");
+        System.out.println(customer.getTotalResult());
+        System.out.println(customer.getTotalEarningRate());
     }
 
 }

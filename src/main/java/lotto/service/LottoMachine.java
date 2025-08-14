@@ -1,8 +1,11 @@
-package lotto.domain;
+package lotto.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import lotto.domain.Customer;
+import lotto.domain.Lotto;
+import lotto.domain.WinningLotto;
 
 public class LottoMachine {
 
